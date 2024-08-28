@@ -2,7 +2,7 @@ rm(list = ls(all.names = TRUE))
 getwd()
 setwd("~/")
 getwd()
-setwd("C:/Users/diego.leitao/Documents/R (1)")
+#setwd("C:/Users/diego.leitao/Documents/R (1)")
 library(dplyr)
 library(openxlsx)
 library(olsrr) #stepwise regression
@@ -16,7 +16,7 @@ library(hydroGOF) #model parameters
 ##### Data  #######
 ###################
 
-data<-read.xlsx("vegetation_indices_v2.xlsx",
+data<-read_csv("vegetation_indices_v2.csv",
                 na.strings="NA")
 View(data)
 str(data)
@@ -33,7 +33,7 @@ data<-data|>
 
 data[, 6:71] <- lapply(data[, 6:71], as.numeric)
 
-val_data<-read.xlsx("validation_vegetation_indices_v2.xlsx",
+val_data<-read_csv("validation_vegetation_indices_v2.csv",
                     na.strings="NA")
 View(val_data)
 str(val_data)
@@ -48,7 +48,7 @@ val_data<-val_data|>
                 NDI,NGBDI,RCC,RGBVI,PRI,SCI,SI,VARI,VDVI,VEG,VIgreen,vNDVI,WI)|>
   na.omit()
 
-test_data<-read.xlsx("test_vegetation_indices_v2.xlsx",
+test_data<-read.csv("test_vegetation_indices_v2.csv",
                      na.strings="NA")
 
 test_data<-test_data|>
